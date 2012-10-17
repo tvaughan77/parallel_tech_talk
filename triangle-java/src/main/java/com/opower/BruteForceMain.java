@@ -18,18 +18,18 @@ public class BruteForceMain
     {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
+        
         for (int i=1; i<=SEARCH_LIMIT; i++) {
+        
             Long triangleNumber = TriangleNumbers.get(i);
+            
             Integer[] factors = Factors.factors(triangleNumber);
             
             printUpdate(stopWatch, i, triangleNumber, factors);
 
             if (factors.length > FACTOR_LIMIT) {
                 stopWatch.stop();
-                System.out.println("");
-                System.out.println(triangleNumber + " is the first triangle number (the " + i + "th) "
-                        + "to have at least " + FACTOR_LIMIT + " factors (it has " + factors.length + " factors)");
-                System.out.println("Finding this solution took " + stopWatch.toString());
+                printSolution(triangleNumber, i, factors.length, stopWatch.toString());
                 break;
             }
         }
@@ -44,5 +44,12 @@ public class BruteForceMain
             BIGGEST_FACTORS_SO_FAR = factors.length;
             stopWatch.resume();    
         }
+    }
+
+    private static void printSolution(Long triangleNumber, int i, int length, String time) {
+        System.out.println("");
+        System.out.println(triangleNumber + " is the first triangle number (the " + i + "th) "
+                + "to have at least " + FACTOR_LIMIT + " factors (it has " + length + " factors)");
+        System.out.println("Finding this solution took " + time);
     }
 }
