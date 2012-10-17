@@ -42,7 +42,7 @@ public class ThreadPoolMain extends AbstractTriangleProcess {
         
         try {
             for (int i=0; i<=SEARCH_LIMIT; i++) {
-                Future<Result> resultFuture = completionService.take();
+                Future<Result> resultFuture = completionService.take();     // .take() is a blocking operation
                 Result result = resultFuture.get();
                 
                 printUpdate(stopWatch, result.triangleIndex, result.triangleNumber, result.factors);
