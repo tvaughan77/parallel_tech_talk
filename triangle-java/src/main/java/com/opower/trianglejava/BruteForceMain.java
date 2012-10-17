@@ -5,7 +5,7 @@ import org.apache.commons.lang3.time.StopWatch;
 /**
  *  Find the first triangle number to have over 500 unique factors
  */
-public class App 
+public class BruteForceMain 
 {
     // Find the first number that has more than this number of factors
     private final static Integer FACTOR_LIMIT = 500;
