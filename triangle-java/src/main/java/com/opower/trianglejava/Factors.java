@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.TreeSet;
 
 /**
- *
+ * 
  * @author tomvaughan
  */
 public final class Factors {
@@ -31,7 +31,7 @@ public final class Factors {
     
     public static String printFactors(Long number, Integer[] factors) {
         StringBuilder sb = new StringBuilder("Factors of " + number + " are: [");
-        for(Integer factor : factors) {
+        for (Integer factor : factors) {
             sb.append(factor).append(",");
         }
         sb.deleteCharAt(sb.length() - 1);

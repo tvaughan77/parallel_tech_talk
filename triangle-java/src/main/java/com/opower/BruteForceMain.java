@@ -18,7 +18,7 @@ public class BruteForceMain
     {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        for(int i=1; i<=SEARCH_LIMIT; i++) {
+        for (int i=1; i<=SEARCH_LIMIT; i++) {
             Long triangleNumber = TriangleNumbers.get(i);
             Integer[] factors = Factors.factors(triangleNumber);
             
@@ -27,7 +27,7 @@ public class BruteForceMain
             System.out.println(Factors.printFactors(new Long(i), factors));
             stopWatch.resume();
 
-            if(factors.length > FACTOR_LIMIT) {
+            if (factors.length > FACTOR_LIMIT) {
                 stopWatch.stop();
                 System.out.println("");
                 System.out.println(triangleNumber + " is the first triangle number (the " + i + "th) "
