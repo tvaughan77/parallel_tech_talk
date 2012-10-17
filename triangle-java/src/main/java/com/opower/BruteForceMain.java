@@ -1,5 +1,7 @@
-package com.opower.trianglejava;
+package com.opower;
 
+import com.opower.trianglejava.Factors;
+import com.opower.trianglejava.TriangleNumbers;
 import org.apache.commons.lang3.time.StopWatch;
 
 /**
