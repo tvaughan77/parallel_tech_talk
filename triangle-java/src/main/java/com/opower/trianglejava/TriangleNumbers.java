@@ -11,6 +11,9 @@ import java.util.Map;
  * triangle number should look to see if we've already computed the N-1th triangle number and then just add
  * N to that value.  This class maintains an internal lookup Map to implement that dynamic programming approach.
  * 
+ * This approach will improve speed in a single-threaded situation but may actually make things worse in a 
+ * parallel situation because of the aggressive synchronization locking I'm using.
+ * 
  * @author tomvaughan
  */
 public final class TriangleNumbers {
