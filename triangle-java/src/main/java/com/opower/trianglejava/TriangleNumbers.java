@@ -47,4 +47,17 @@ public final class TriangleNumbers {
             return triangleNumber;
         }
     }
+    
+    /**
+     * @param index The requested triangle number, as an index. Like "gimme the 7th triangle number"
+     * @return The nTh triangle number.  E.g. "The get(7) th triangle number is 28"
+     */
+    public static Long getDumbly(int index) {
+        assert index > 0;
+        Long number = 0L;
+        for (int i=0; i<=index; i++) {
+            number += i;
+        }
+        return number;
+    }
 }
