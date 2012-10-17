@@ -34,7 +34,7 @@ public class ThreadPoolMain extends AbstractTriangleProcess {
             completionService.submit(new Callable<Result>() {
                 @Override
                 public Result call() throws Exception {
-                    Long triangleNumber = TriangleNumbers.getDumbly(triangleIndex);
+                    Long triangleNumber = TriangleNumbers.get(triangleIndex);
                     Integer[] factors = Factors.factors(triangleNumber);
                     return new Result(triangleIndex, triangleNumber, factors);
                 }
