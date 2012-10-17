@@ -10,7 +10,7 @@ import org.apache.commons.lang3.time.StopWatch;
 public class BruteForceMain 
 {
     // Find the first number that has more than this number of factors
-    private final static Integer FACTOR_LIMIT = 500;
+    private final static Integer FACTOR_LIMIT = 1000;
     // The maximum triangle number (the nTh one, not its actual value) to search up to.
     private final static Integer SEARCH_LIMIT = 50000;
     
@@ -22,10 +22,7 @@ public class BruteForceMain
             Long triangleNumber = TriangleNumbers.get(i);
             Integer[] factors = Factors.factors(triangleNumber);
             
-            stopWatch.suspend();
-            System.out.print(String.format("%10d is a triangle number with %4d factors:", triangleNumber,factors.length));
-            System.out.println(Factors.printFactors(new Long(i), factors));
-            stopWatch.resume();
+            printUpdate(stopWatch, i, triangleNumber, factors);
 
             if (factors.length > FACTOR_LIMIT) {
                 stopWatch.stop();
@@ -35,6 +32,17 @@ public class BruteForceMain
                 System.out.println("Finding this solution took " + stopWatch.toString());
                 break;
             }
+        }
+    }
+
+    private static int BIGGEST_FACTORS_SO_FAR = 0;
+    private static void printUpdate(StopWatch stopWatch, int i, Long triangleNumber, Integer[] factors) {
+        if(factors.length > BIGGEST_FACTORS_SO_FAR) {
+            stopWatch.suspend();
+            System.out.print(String.format("%10d is triangle number #%6d with %4d factors: ", triangleNumber, i, factors.length));
+            System.out.println(Factors.printFactors(triangleNumber, factors));
+            BIGGEST_FACTORS_SO_FAR = factors.length;
+            stopWatch.resume();    
         }
     }
 }

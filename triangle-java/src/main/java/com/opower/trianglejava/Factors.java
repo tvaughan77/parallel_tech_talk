@@ -30,7 +30,7 @@ public final class Factors {
     }
     
     public static String printFactors(Long number, Integer[] factors) {
-        StringBuilder sb = new StringBuilder("Factors of " + number + " are: [");
+        StringBuilder sb = new StringBuilder(String.format("Factors of %10d are: [", number));
         for (Integer factor : factors) {
             sb.append(factor).append(",");
         }
